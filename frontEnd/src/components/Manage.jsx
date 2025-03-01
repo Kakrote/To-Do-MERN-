@@ -6,21 +6,22 @@ import TaskList from './TaskList';
 
 const Manage = () => {
 
-    // const [TaskList, setTaskList] = useState([]);
-    const tasks = [
-        { title: 'Complete React Project', date: '2025-02-19', time: '2:00 PM', status: 'In Progress', priority: 'high' },
-        { title: 'Attend Team Meeting', date: '2025-02-20', time: '10:00 AM', status: 'Pending', priority: 'low' },
-        { title: 'Submit Report', date: '2025-02-21', time: '4:00 PM', status: 'Completed', priority: 'high' },
-      ];
 
     return (
         <>
-            <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-            {/* <Navbar/> */}
-            
-            <AddingTask/>
-            <div className="container w-fit mx-auto">
-            <TaskList tasks={tasks}/>
+            <div className="flex flex-col min-h-screen [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+                {/* Main Content */}
+                <div className="flex-grow overflow-auto">
+                    <AddingTask />
+                    <div className="container w-fit mx-auto flex flex-wrap gap-4">
+                        <TaskList />
+                    </div>
+                </div>
+
+                {/* Fixed Footer */}
+                <footer className="w-full text-center p-4 bg-gray-800 text-white fixed bottom-0 left-0">
+                    <p>&copy; {new Date().getFullYear()} Task Manager App. All Rights Reserved.</p>
+                </footer>
             </div>
 
         </>

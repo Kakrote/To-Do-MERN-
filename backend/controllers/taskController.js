@@ -3,6 +3,7 @@ const Task=require('../models/task');
 
 // Create a new task
 const createTask=async(req,res)=>{
+    console.log(req.body)
     try {
         const {task,priority}=req.body;
         const newTask=new Task({

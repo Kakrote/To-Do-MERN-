@@ -1,12 +1,27 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Dropbox from './Dropbox';
+import axios from 'axios';
 
 const AddingTask = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors, },reset } = useForm();
+  const [priority, setPriority] = React.useState('Low')
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try{
+      const token=localStorage.getItem('token')
+      const response=await axios.post('http://localhost:3000/api/task/create',{task:data.task,priority:priority||'Low'},
+        {headers:{
+          "Content-Type":"application/json",
+          "Authorization":`Bearer ${token}`
+        }}
+      )
+      console.log(response.data)
+      reset() // this reset's the form
+    }
+    catch(error){
+      console.error('Error creating task',error.response ?error.response.data :error.message)
+    }
   };
 
   return (
@@ -24,7 +39,7 @@ const AddingTask = () => {
        
       </div>
 
-      <Dropbox />
+      <Dropbox setPriority={setPriority}/>
 
       <button 
         type="submit" 

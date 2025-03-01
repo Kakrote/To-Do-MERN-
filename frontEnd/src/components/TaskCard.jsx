@@ -26,7 +26,7 @@ const TaskCard = (props) => {
             </div>
 
             {/* proprity indigater */}
-            <div className={`h-[45px] w-[45px] rounded-full border  border-white ${props.priority==="high"?"bg-red-500 shadow-[0_0_8px_6px_rgba(214,48,10,1)] ":"bg-green-500 shadow-[0_0_8px_6px_rgba(34,197,94,1)]"}`}></div>
+            <div className={`h-[45px] w-[45px] rounded-full border  border-white ${props.priority==="High"?"bg-red-500 shadow-[0_0_8px_6px_rgba(214,48,10,1)] ":"bg-green-500 shadow-[0_0_8px_6px_rgba(34,197,94,1)]"}`}></div>
 
         </div>
     )
