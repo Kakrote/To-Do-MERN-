@@ -12,7 +12,7 @@ const createTask=async(req,res)=>{
             user_id:req.user.id
         }); 
         await newTask.save();
-        res.json({msg:'Task created successfully'});
+        res.json(newTask);
     } catch (error) {
         console.log(error);
         res.status(500).json({msg:'Server Error'});
@@ -53,7 +53,7 @@ const updateTask=async(req,res)=>{
     const taskFields={};
     if(task) taskFields.task=task;
     if(priority) taskFields.priority=priority;
-    if(status) taskFields.status=status;
+    if(status!==undefined) taskFields.status=status;
     try {
         let task=await Task.findById(req.params.id);
         if(!task){
