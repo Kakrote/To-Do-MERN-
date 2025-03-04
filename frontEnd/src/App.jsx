@@ -8,8 +8,7 @@ import Navbar from './components/Navbar'
 function App() {
 
   return (
-    <>
-      <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+  <div className='min-h-screen [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]'>
 
       <Navbar></Navbar>
 
@@ -19,7 +18,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/todos' element={<Manage />}></Route>
       </Routes>
-    </>
+  </div>
   )
 }
 

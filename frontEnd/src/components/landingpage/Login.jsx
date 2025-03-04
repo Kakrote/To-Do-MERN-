@@ -5,6 +5,12 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/authSlice";
 import Manage from "../Manage";
+import { motion } from "framer-motion";
+
+const fadeIn={
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+}
 
 const Login = () => {
     const dispatch=useDispatch();
@@ -29,7 +35,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[40%] my-30 w-fit mx-auto  rounded-lg  ">
+    <motion.div className="flex justify-center items-center min-h-[40%] my-30 w-fit mx-auto  rounded-lg  "initial="hidden"
+    animate="visible"
+    variants={fadeIn}>
       <div className=" text-white bg-transparent shadow-blue-500/30 shadow-lg p-6 rounded-lg w-[400px] max-w-md">
         <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -59,7 +67,7 @@ const Login = () => {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

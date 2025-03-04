@@ -2,6 +2,12 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
+
+const fadeIn={
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+}
 
 const Registration = () => {
 
@@ -37,7 +43,11 @@ const Registration = () => {
   const confirmPassword = watch("confirmPassword");
 
   return (
-    <div className="flex justify-center items-center mt-10 mx-auto w-fit">
+    <motion.div className="flex justify-center items-center mt-10 mx-auto w-fit"
+    initial="hidden"
+    animate="visible"
+    variants={fadeIn}    
+    >
       <div className=" text-white shadow-lg shadow-sky-600/30 w-[400px] rounded-lg p-6  max-w-md">
         <h2 className="text-2xl font-bold text-center mb-4">Register</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -93,7 +103,7 @@ const Registration = () => {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

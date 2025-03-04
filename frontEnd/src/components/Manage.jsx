@@ -19,7 +19,7 @@ const Manage = () => {
                 </div>
 
                 {/* Fixed Footer */}
-                <footer className="w-full text-center p-4 bg-gray-800 text-white fixed bottom-0 left-0">
+                <footer className="w-full text-center p-4 bg-gray-800 text-white  bottom-0 left-0">
                     <p>&copy; {new Date().getFullYear()} Task Manager App. All Rights Reserved.</p>
                 </footer>
             </div>
