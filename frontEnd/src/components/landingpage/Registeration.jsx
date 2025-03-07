@@ -69,7 +69,7 @@ const Registration = () => {
             <input
               type="text"
               {...register("username", { required: "Username is required" })}
-              className="w-full p-2 border border-gray-300 rounded mt-1 text-black"
+              className="w-full p-2 border border-gray-300 rounded mt-1 text-white"
             />
             {errors.username && <p className="text-red-500 text-sm">{errors.username.message}</p>}
           </div>
@@ -79,7 +79,7 @@ const Registration = () => {
             <input
               type="email"
               {...register("email", { required: "Email is required" })}
-              className="w-full p-2 border border-gray-300 rounded mt-1 text-black"
+              className="w-full p-2 border border-gray-300 rounded mt-1 white"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
           </div>
@@ -92,7 +92,7 @@ const Registration = () => {
                 required: "Password is required",
                 minLength: { value: 5, message: "Password must be at least 5 characters" },
               })}
-              className="w-full p-2 border border-gray-300 rounded mt-1 text-black"
+              className="w-full p-2 border border-gray-300 rounded mt-1 text-white"
             />
             {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
           </div>
@@ -105,7 +105,7 @@ const Registration = () => {
                 required: "Confirm Password is required",
                 validate: (value) => value === password || "Passwords do not match",
               })}
-              className="w-full p-2 border border-gray-300 rounded mt-1 text-black"
+              className="w-full p-2 border border-gray-300 rounded mt-1 text-white"
             />
             {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword.message}</p>}
           </div>

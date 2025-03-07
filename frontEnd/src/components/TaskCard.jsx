@@ -64,7 +64,7 @@ const TaskCard = (props) => {
       </div>
 
       {showEditModal && (
-        <div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-md'>
+        <div className='fixed inset-0 flex justify-center items-center bg-transparent bg-opacity-50 backdrop-blur-md'>
           <div className='bg-gray-900 text-white p-6 rounded-lg w-[90%] sm:w-[400px]'>
             <h2 className='text-xl font-bold mb-4'>Edit Task</h2>
 
