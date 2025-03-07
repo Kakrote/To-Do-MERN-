@@ -11,6 +11,7 @@ const fadeIn = {
 };
 
 const Registration = () => {
+  const baseUrl = 'https://to-do-mern-69og.onrender.com';
   const [serverError, setServerError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Registration = () => {
   const onSubmit = async (data) => {
     console.log('Submitting data:', data);
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/register', data);
+      const response = await axios.post(`${baseUrl}/api/auth/register`, data);
       console.log('Submitted:', response.data);
 
       // Show success message

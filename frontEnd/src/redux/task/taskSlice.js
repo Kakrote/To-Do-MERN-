@@ -58,12 +58,13 @@ export const {
 
 export default taskSlice.reducer;
 
+const BASE_URL = 'https://to-do-mern-69og.onrender.com/api/task'
 // Thunks
 export const fetchTasks = () => async (dispatch) => {
   dispatch(fetchTasksStart());
   try {
     const token=localStorage.getItem('token')
-    const response = await axios.get('http://localhost:3000/api/task/get',{
+    const response = await axios.get(`${BASE_URL}/get`,{
         headers:{
             'Authorization':`Bearer ${token}`
         }
@@ -78,7 +79,7 @@ export const fetchTasks = () => async (dispatch) => {
 export const createTask = (taskData) => async (dispatch) => {
   try {
     const token=localStorage.getItem('token')
-    const response = await axios.post('http://localhost:3000/api/task/create', {task:taskData.title,priority:taskData.priority},{
+    const response = await axios.post(`${BASE_URL}/create`, {task:taskData.title,priority:taskData.priority},{
         headers:{
             'Authorization':`Bearer ${token}`
         }
@@ -96,7 +97,7 @@ export const deleteTaskTrunk=(taskId)=>async (dispatch)=>{
   try{
     dispatch(deleteTask(taskId))
     const token=localStorage.getItem('token')
-    await axios.delete(`http://localhost:3000/api/task/delete/${taskId}`,{
+    await axios.delete(`${BASE_URL}/delete/${taskId}`,{
       headers:{
         'Authorization':`Bearer ${token}`
       }
@@ -104,7 +105,7 @@ export const deleteTaskTrunk=(taskId)=>async (dispatch)=>{
   }
   catch (err) {
     console.error('Failed to delete task:', err);
-    dispatch(fetchTasks());
+    dispatch(fetchTasks()); // rollback
   }
 }
 
@@ -112,7 +113,7 @@ export const editTaskTrunk=(taskId,updatedData)=>async (dispatch)=>{
   try{
 
     const token=localStorage.getItem('token')
-    const response=await axios.put(`http://localhost:3000/api/task/update/${taskId}`,updatedData,{
+    const response=await axios.put(`${BASE_URL}/update/${taskId}`,updatedData,{
       headers:{
         'Authorization':`Bearer ${token}`
       }
@@ -129,7 +130,7 @@ export const toggelTaskStatusTrunk=(taskId,currentStatus)=>async(dispatch)=>{
     const token=localStorage.getItem('token')
     const newStatus = !currentStatus
     // const newStatus = currentStatus === true?false:true
-    const response=await axios.put(`http://localhost:3000/api/task/update/${taskId}`,{status:newStatus},{
+    const response=await axios.put( `${BASE_URL}/update/${taskId}`,{status:newStatus},{
       headers:{
         'Authorization':`Bearer ${token}`
       }

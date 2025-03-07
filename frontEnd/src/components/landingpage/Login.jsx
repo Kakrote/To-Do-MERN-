@@ -13,6 +13,7 @@ const fadeIn={
 }
 
 const Login = () => {
+  const baseUrl='https://to-do-mern-69og.onrender.com'
     const dispatch=useDispatch();
     const navigate=useNavigate()
     const [loginError ,setloginError]=React.useState('')
@@ -24,7 +25,7 @@ const Login = () => {
 
   const onSubmit = async(data) => {
     try{
-      const response=await axios.post('http://localhost:3000/api/auth/login',data)
+      const response=await axios.post(`${baseUrl}/api/auth/login`,data)
       localStorage.setItem("token",response.data.token) // saving token into the local storage
       dispatch(login({token:response.data.token,user:response.data.user}))
       setloginError('')
