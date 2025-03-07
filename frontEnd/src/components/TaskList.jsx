@@ -54,7 +54,7 @@ const TaskList = () => {
 
 
   return (
-    <div className="task-list flex flex-col  gap-2 justify-center py-8">
+    <div className="task-list grid grid-cols-1  gap-4 text-center py-8">
       {Array.isArray(tasks) && tasks.length > 0 ? tasks.map((task) => {
         console.log("task id", task)
 

@@ -41,7 +41,7 @@ const AddingTask = () => {
   return (
     <form 
       onSubmit={handleSubmit(onSubmit)} 
-      className="mx-auto w-[50%] mt-7  shadow-[0_0_20px_5px_rgba(59,130,246,0.2)] p-3 py-2 border border-gray-900  rounded-lg flex gap-4 items-center"
+      className="mx-auto w-[50%] mt-7  shadow-[0_0_20px_5px_rgba(59,130,246,0.2)] p-3 py-2 border border-gray-900  rounded-lg flex gap-4 items-center flex-col md:flex-row"
     >
       <div className="flex-grow flex flex-col">
         <input 

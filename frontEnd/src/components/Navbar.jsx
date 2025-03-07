@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logout } from "../redux/auth/authSlice";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-scroll'
+// import Dropbox2 from "./Dropbox2";
+// import { Link } from 'react-scroll'
 
 // Profile Component
 const Profile = () => {
@@ -31,11 +32,14 @@ const Navbar = () => {
 
 
   return (
-    <nav className="flex  justify-between items-center border  border-gray-900 shadow-lg shadow-sky-400/20 p-3  w-[70%] rounded-2xl mt-1 mx-auto">
+    <nav className="flex md:flex-row flex-col justify-between items-center border  border-gray-900 shadow-lg shadow-sky-400/20 p-3  w-[70%] rounded-2xl mt-1 mx-auto">
       {/* Logo */}
       <div className="Logo flex items-center">
+        <NavLink to={'/'}>
+
         <span className="text-xl text-white">YOUR TASK</span>
         <span className="text-4xl font-bold text-green-400">'S</span>
+        </NavLink>
       </div>
 
       {/* Navigation Links */}
@@ -89,14 +93,7 @@ const Navbar = () => {
                   Register
                 </NavLink>
               </li>
-              {/* <li>
-                <Link to="aboutapp"
-                smooth={true}
-                duration={800}
-                className={({isActive})=>`transition-all text-white ${isActive ? 'text-red-500 font-bold':'text-white hover:text-red-500'}`}>
-                  about app
-                </Link>
-              </li> */}
+             
             </>
           )}
         </ul>

@@ -37,7 +37,7 @@ const Dropbox = ({setPriority}) => {
       {/* Dropdown Options */}
       {isOpen && (
         
-        <div className="absolute left-0 w-full bg-white shadow-md rounded-md mt-2 overflow-hidden z-10">
+        <motion.div className="absolute left-0 w-full bg-white shadow-md rounded-md mt-2 overflow-hidden z-10">
           {options.map((option) => (
             <button
               key={option.value}
@@ -51,7 +51,7 @@ const Dropbox = ({setPriority}) => {
               {selectedPriority === option.value && <Check className="h-4 w-4 text-gray-700" />}
             </button>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );

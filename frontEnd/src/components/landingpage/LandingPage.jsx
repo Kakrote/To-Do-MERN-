@@ -30,8 +30,8 @@ const LandingPage = () => {
         viewport={{ once: true }}
         variants={fadeIn}
       >
-        <h2 className='font-bold text-3xl mb-4 text-blue-600'>About App</h2>
-        <p className='leading-relaxed w-2xl mx-auto '>
+        <h2 className='font-bold text-3xl mb-4  text-blue-600'>About App</h2>
+        <p className='leading-relaxed mx-auto  '>
           This app helps users manage their tasks efficiently. With features like priority lists, real-time updates using Redux, and seamless user authentication, it's designed to simplify your workflow.
         </p>
       </motion.section>
@@ -53,7 +53,7 @@ const LandingPage = () => {
             </p>
           </div>
           <div className='rounded-full overflow-hidden w-80 h-80 border-4 border-blue-600 shadow-md'>
-            <img src='../public/profile2.png' alt='Profile' className='w-full h-full object-cover' />
+            <img src='/profile2.png' alt='Profile' className='w-full h-full object-cover' />
           </div>
         </div>
       </motion.section>
@@ -72,10 +72,10 @@ const LandingPage = () => {
             href="mailto:anshul.pundir111@gmail.com" 
             className='bg-white text-blue-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-300 transition-all'
           >
-            Email Me
+            Email
           </a>
           <a 
-            href="https://github.com/anshulpundir" 
+            href="https://github.com/Kakrote" 
             target="_blank" 
             rel="noopener noreferrer" 
             className='bg-white text-blue-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-300 transition-all'
