@@ -27,10 +27,12 @@ const Login = () => {
       const response=await axios.post('http://localhost:3000/api/auth/login',data)
       localStorage.setItem("token",response.data.token) // saving token into the local storage
       dispatch(login({token:response.data.token,user:response.data.user}))
+      setloginError('')
       navigate('/todos')
+      
     }
     catch(error){
-      setloginError(error.response?.data?.error||'Login faild please try again')
+      setloginError(error.response?.data?.error||'Wrong email or password check! try again')
     }
   };
 
@@ -65,6 +67,7 @@ const Login = () => {
           >
             Login
           </button>
+          {loginError && <p className="text-red-500 text-sm">{loginError}</p>}
         </form>
       </div>
     </motion.div>
